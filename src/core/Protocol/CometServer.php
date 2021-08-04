@@ -1,6 +1,8 @@
 <?php
 namespace SPF\Protocol;
+
 use SPF;
+use SPF\Tool;
 
 abstract class CometServer extends WebSocket
 {
@@ -227,7 +229,7 @@ class CometSession extends \SplQueue
 
     function __construct()
     {
-        $this->id = md5(uniqid('', true));
+        $this->id = Tool::random(32);
     }
 
     function getMessageCount()
@@ -237,7 +239,7 @@ class CometSession extends \SplQueue
 
     function pushMessage($msg)
     {
-        return $this->enqueue($msg);
+        $this->enqueue($msg);
     }
 
     function popMessage()
