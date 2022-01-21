@@ -58,7 +58,7 @@ class ModelLoader
             if (!is_file($model_file)) {
                 //严格的psr4格式 大驼峰 命名空间和文件夹对应
                 $model_file = App::getInstance()->app_path . '/Models/' . str_replace('\\', '/', $model_name) . '.php';
-                $model_class = '\\App\\Models\\' . $model_name;
+                $model_class = '\\App\\Model\\' . $model_name;
             }
             if (!is_file($model_file)) {
                 throw new Error("The model [<b>$model_name</b>] does not exist.");
